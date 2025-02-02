@@ -61,7 +61,7 @@ const LoginPage = () => {
         <div className="login-footer">
           <p>Don't have an account? <a href="/signup">Sign up</a></p>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
