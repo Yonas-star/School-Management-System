@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
+import logo from "../../public/JVSA.jpg"
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
