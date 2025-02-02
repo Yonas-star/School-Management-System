@@ -1,42 +1,168 @@
-#root {
-  max-width: 1280px;
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #1d3557; /* Light gray for practicality */
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: transparent; /* Blue gradient for sophistication */
+  position: relative;
+  color: white;
   text-align: center;
+  padding: 0 20px;
+  border-radius: 20px;
+}
+
+.hero-content {
+  z-index: 10;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  width: 180px;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  transform: scale(1.1);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  background: #8d6e63; /* Brown - Reliability & Friendship */
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #6d4c41; /* Darker brown for hover effect */
+  transform: translateY(-3px);
+}
+
+/* Section Styling */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #5c2e91; /* Purple - Luxury & Spiritual Awareness */
+  border-bottom: 4px solid #5c2e91;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.about, .admissions, .contact {
+  padding: 60px 20px;
+  margin-top: 40px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about:hover, .admissions:hover, .contact:hover {
+  transform: translateY(-5px);
+}
+
+.about-content, .admissions-content, .contact-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about p, .admissions p, .contact p {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+/* Admissions CTA */
+.admissions .cta-button {
+  background: #1d3557; /* Blue for call to action */
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.admissions .cta-button:hover {
+  background: #112d47; /* Darker blue for hover effect */
+  transform: translateY(-3px);
+}
+
+/* Contact Section */
+.contact a {
+  color: #5c2e91; /* Purple - Spiritual Awareness & Luxury */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* Black Section for Luxury and Power */
+.contact {
+  background: white; /* Blackish blue - Power, Luxury & Strength */
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .subtitle {
+    font-size: 1.2rem;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 25px;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .about, .admissions, .contact {
+    padding: 40px 20px;
+  }
 }
