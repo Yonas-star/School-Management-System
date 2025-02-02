@@ -1,12 +1,16 @@
-import React from 'react'
-import Navbar from './Components/Navbar'
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
+import Navbar from './Components/Navbar';
 
 const App = () => {
   return (
-   <>
-   <Navbar/>
-   </>
-  )
-}
+    <ConfigProvider>
+      <Router>
+        <Navbar />
+      </Router>
+    </ConfigProvider>
+  );
+};
 
-export default App
+export default App;

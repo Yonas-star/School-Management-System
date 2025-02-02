@@ -1,35 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
-import { HomeOutlined, BookOutlined, UserOutlined, LogoutOutlined } from '@ant-design/icons';
-import { useKeycloak } from '@react-keycloak/web';
+import { Layout, Menu, Button } from 'antd';
+import { HomeOutlined, BookOutlined, UserOutlined, LoginOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
 const Navbar = () => {
-  const { keycloak } = useKeycloak();
-
   return (
-    <Header>
+    <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
       <div className="logo" style={{ color: 'white', fontSize: '20px', fontWeight: 'bold' }}>
         School Management
       </div>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+      <Menu theme="dark" mode="horizontal" style={{ flex: 1, justifyContent: 'center' }}>
         <Menu.Item key="1" icon={<HomeOutlined />}>
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<BookOutlined />}> 
+        <Menu.Item key="2" icon={<BookOutlined />}>
           <Link to="/courses">Courses</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<UserOutlined />}>
-          <Link to="/profile">Profile</Link>
+          <Link to="/students">Students</Link>
         </Menu.Item>
-        {keycloak.authenticated ? (
-          <Menu.Item key="4" icon={<LogoutOutlined />} onClick={() => keycloak.logout()}>Logout</Menu.Item>
-        ) : (
-          <Menu.Item key="5" onClick={() => keycloak.login()}>Login</Menu.Item>
-        )}
       </Menu>
+      <Button type="primary" icon={<LoginOutlined />}>Login</Button>
     </Header>
   );
 };
