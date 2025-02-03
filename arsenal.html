@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal-Inspired Logo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .logo {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            background: red;
+            border-radius: 50% 50% 40% 40%;
+            border: 5px solid gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: gold;
+            border-radius: 20px;
+        }
+
+        .text {
+            position: absolute;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .cannon {
+            position: absolute;
+            width: 80px;
+            height: 10px;
+            background: gold;
+            top: 60%;
+            left: 15%;
+            transform: rotate(-10deg);
+            border-radius: 5px;
+        }
+
+        .cannon::before {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: gold;
+            border-radius: 50%;
+            left: -20px;
+            top: -10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">
+        <div class="text">Arsenal</div>
+        <div class="cannon"></div>
+    </div>
+
+</body>
+</html>

@@ -13,6 +13,7 @@ const LandingPage = () => {
           <h1 className="title">Joint Vision Success Academy</h1>
           <p className="subtitle">Shaping Future Leaders</p>
           <Link to="/login" className="cta-button">Login</Link>
+          <Link to="/register" className="cta-button">Register</Link>
           </div>
       </header>
 

@@ -1,69 +1,51 @@
-import React, { useState } from 'react';
-import '../App.css';
-import logo from "../../public/JVSA.jpg"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../api"; // Ensure this API is implemented
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+    const [credentials, setCredentials] = useState({ email: "", password: "" });
+    const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleChange = (e) => {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    };
 
-    if (!username || !password) {
-      setError('Both fields are required');
-      return;
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await loginUser(credentials); // Call API
 
-    // Simulate form submission
-    console.log('Submitting login', { username, password });
+            if (response.success) {
+                localStorage.setItem("token", response.token);
+                localStorage.setItem("role", response.role); // Store role
 
-    // Example: Redirect to dashboard or handle authentication (replace with real logic)
-    // history.push('/dashboard');  // For example if using react-router
+                // Redirect based on role
+                if (response.role === "student") {
+                    navigate("/student-dashboard");
+                } else if (response.role === "teacher") {
+                    navigate("/teacher-dashboard");
+                } else if (response.role === "admin") {
+                    navigate("/admin-dashboard");
+                }
+            } else {
+                alert(response.message);
+            }
+        } catch (error) {
+            console.error("Login failed:", error);
+            alert("Login failed. Please try again.");
+        }
+    };
 
-    setError(''); // Clear error on successful form submission
-  };
-
-  return (
-    <div className="login-container">
-      <div className="login-form">
-        <h2 className="login-title">Login to Your Account</h2>
-        {error && <p className="error-message">{error}</p>}
-
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <button type="submit" className="cta-button">Login</button>
-        </form>
-
-        <div className="login-footer">
-          <p>Don't have an account? <a href="/signup">Sign up</a></p>
+    return (
+        <div>
+            <h2>Login</h2>
+            <form onSubmit={handleSubmit}>
+                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+                <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+                <button type="submit">Login</button>
+            </form>
         </div>
-      </div> 
-    </div>
-  );
+    );
 };
 
 export default LoginPage;
