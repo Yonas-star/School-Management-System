@@ -9,7 +9,7 @@ def download_video(url, save_path="."):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
 
-# Example usage
+# Example usage    
 video_url = input("Enter YouTube video URL: ")
 download_video(video_url, save_path="./Downloads")
 
