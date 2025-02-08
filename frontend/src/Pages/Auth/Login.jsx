@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd';
 const Login = () => {
   const onFinish = (values) => {
     console.log('Login Successful:', values);
-  };
+  }; 
 
   return (
     <div style={{ maxWidth: 300, margin: '100px auto' }}>
