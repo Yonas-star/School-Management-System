@@ -1,0 +1,42 @@
+/* Fullscreen background image */
+.home-page {
+  position: relative;
+  background-image: url('/background-image.jpg'); /* Your background image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 100px; /* Adjust depending on your logo size */
+}
+
+.hero-text h1, .hero-text p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to text */
+}
+
+/* Add padding and margins to sections */
+.section {
+  margin-bottom: 3rem;
+}
+
+/* Customize button styles if needed */
+.ant-btn-primary {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.ant-btn-primary:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}

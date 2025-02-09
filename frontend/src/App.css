@@ -1,42 +1,162 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.landing-page {
   text-align: center;
+  padding: 20px;
+  background: #ffffff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero {
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+  color: white;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.hero .logo {
+  width: 120px;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
-.card {
-  padding: 2em;
+.hero h1 {
+  font-size: 3.5rem;
+  margin: 10px 0;
+  font-weight: bold;
 }
 
-.read-the-docs {
-  color: #888;
+.hero p {
+  font-size: 1.3rem;
+  margin: 10px 0 20px;
+}
+
+.hero button {
+  background: #ffc107;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero button:hover {
+  background: #ff9800;
+}
+
+.about-us, .programs, .achievements, .testimonials, .contact {
+  padding: 50px 20px;
+  background: #ffffff;
+  margin: 30px 0;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.program-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.program-list .ant-card {
+  transition: transform 0.3s;
+}
+
+.program-list .ant-card:hover {
+  transform: translateY(-10px);
+}
+
+.contact-info p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+footer {
+  background-color: #0d47a1;
+  color: white;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Ensure the page covers the full viewport height */
+.home-page {
+  position: relative;
+  min-height: 100vh; /* Full page height */
+  overflow: hidden;
+}
+
+/* Fullscreen background image */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/background-image.jpg'); /* Your background image */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure content is on top */
+}
+
+/* Add overlay effect to background */
+.hero-image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay to make text stand out */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure text is visible on top of background */
+.hero-text h1, .hero-text p {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to text */
+}
+
+/* Add padding and margins to sections */
+.section {
+  margin-bottom: 3rem;
+}
+
+/* Customize button styles if needed */
+.ant-btn-primary {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.ant-btn-primary:hover {
+  background-color: #45a049;
+  border-color: #45a049;
 }
